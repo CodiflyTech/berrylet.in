@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Berrylet – Premium Artisan Cookies</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Playfair+Display:wght@800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #6e0f31;
+  --maroon2: #8a1540;
+  --ink: #1c171a;
+  --text: #4a4347;
+  --pink: #fbf3f6;
+  --line: #e8cfd8;
+  box-sizing: border-box;
+  color-scheme: light;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: #fdfbfc;
+  overflow-x: hidden;
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Navbar */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 72px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  transition: box-shadow .3s;
+}
+nav.stuck {
+  box-shadow: 0 8px 30px rgba(110, 15, 49, .12);
+}
+nav .nav-brand {
+  display: flex;
+  align-items: center;
+}
+nav .logo {
+  width: 44px;
+  height: auto;
+  transition: transform .4s;
+}
+nav .logo:hover {
+  transform: rotate(-8deg) scale(1.15);
+}
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+nav li a {
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #3b3538;
+  position: relative;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+nav li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--maroon);
+  transition: width .3s;
+}
+nav li a:hover::after {
+  width: 100%;
+}
+
+.bg {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0, #fbeef3 0, #fdfbfc 60%);
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: .55;
+  pointer-events: none;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  to { transform: translate(40px, -30px) scale(1.15); }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 48px 20px 80px;
+  overflow: hidden;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: #fbf1f5;
+  color: var(--maroon);
+  font-weight: 600;
+  font-size: clamp(11px, 2.8vw, 13px);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  max-width: 100%;
+}
+.pill i, .tag i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c96a8b;
+  display: block;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  50% { transform: scale(1.5); opacity: .6; }
+}
+.hero h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 900;
+  font-size: clamp(36px, 8.5vw, 110px);
+  line-height: 1.08;
+  margin: 32px 0 20px;
+  letter-spacing: -.01em;
+  width: 100%;
+}
+.hero h1 span {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .08em;
+}
+.hero h1 span b {
+  display: block;
+  font-weight: 900;
+  transform: translateY(110%);
+  animation: rise 1.1s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.hero h1 span:nth-child(2) b {
+  color: var(--maroon);
+  animation-delay: .25s;
+  text-shadow: 0 10px 30px rgba(110, 15, 49, .25);
+}
+@keyframes rise {
+  to { transform: none; }
+}
+.hero p {
+  max-width: 620px;
+  margin: 0 auto 36px;
+  font-size: clamp(15px, 2.5vw, 19px);
+  line-height: 1.65;
+  color: #3a3236;
+  padding: 0 10px;
+}
+.btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: clamp(14px, 3.2vw, 16px);
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  max-width: 100%;
+}
+.btn.p {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon2));
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(110, 15, 49, .3);
+}
+.btn.p::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: skewX(-20deg);
+  animation: shine 3.5s infinite;
+}
+@keyframes shine {
+  60%, 100% { left: 140%; }
+}
+.btn.s {
+  background: #fbf1f5;
+  border: 1px solid var(--line);
+  color: var(--maroon);
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+.fade {
+  opacity: 0;
+  animation: fadeup .9s .7s forwards;
+}
+.fade.d2 { animation-delay: .9s; }
+.fade.d3 { animation-delay: 1.1s; }
+@keyframes fadeup {
+  from { transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Shop Grid */
+#shop {
+  padding: 60px 20px 80px;
+  background: linear-gradient(#fdf1f5, #fbeaf0);
+}
+.cards {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.card {
+  height: 280px;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #fff, #fbf0f4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 40px rgba(110, 15, 49, .08);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .3s;
+  transform: rotate(var(--r, 0deg));
+  padding: 16px;
+}
+.card:nth-child(even) { margin-top: -6px; --r: 1deg; }
+.card:nth-child(odd) { --r: -1deg; }
+.card:hover {
+  transform: translateY(-10px) rotate(0);
+  box-shadow: 0 28px 60px rgba(110, 15, 49, .22);
+  border-color: #c96a8b;
+}
+.card img {
+  max-width: 82%;
+  max-height: 82%;
+  object-fit: contain;
+  transform: rotate(var(--ir, -3deg));
+  transition: transform .5s;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.08));
+}
+.card:nth-child(even) img { --ir: 2deg; }
+.card:nth-child(odd) img { --ir: -3deg; }
+.card:hover img {
+  transform: rotate(0) scale(1.08);
+}
+
+/* Product Showcase */
+.prod {
+  position: relative;
+  padding: 80px 6vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6vw;
+  align-items: center;
+  background: linear-gradient(120deg, #fdfbfc, #fbf1f5);
+  overflow: hidden;
+  min-height: 580px;
+}
+.prod:nth-child(even) {
+  background: linear-gradient(240deg, #fdfbfc, #f8eaef);
+}
+.prod.rev .vis {
+  order: 2;
+}
+.prod.rev .info {
+  order: 1;
+}
+.vis {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  perspective: 900px;
+  box-sizing: border-box;
+}
+.vis .main {
+  position: absolute;
+  inset: 6% 6% 0 6%;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(110, 15, 49, .15);
+  transform: rotate(-1deg);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s cubic-bezier(.2,.8,.2,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.vis:hover .main {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 40px 90px rgba(110, 15, 49, .24);
+}
+.vis .main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.vis:hover .main img {
+  transform: scale(1.05);
+}
+.vis .t1, .vis .t2 {
+  position: absolute;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(110, 15, 49, .18);
+  z-index: 2;
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+  background: #ffffff;
+  pointer-events: none;
+}
+.vis .t1 {
+  width: 22%;
+  aspect-ratio: 1;
+  top: 12px;
+  right: 12px;
+  animation: float 6s ease-in-out infinite;
+}
+.vis .t2 {
+  width: 18%;
+  aspect-ratio: 1;
+  bottom: 12px;
+  left: 12px;
+  animation: float 7s -2s ease-in-out infinite;
+}
+.vis .t1:hover, .vis .t2:hover {
+  transform: scale(1.12) rotate(4deg);
+  box-shadow: 0 20px 40px rgba(110, 15, 49, .3);
+}
+.vis .t1 img, .vis .t2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes float {
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: #fbf1f5;
+  color: var(--maroon);
+  font-weight: 600;
+  font-size: clamp(11px, 2.5vw, 12px);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: transform .3s, box-shadow .3s, background .3s;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(110, 15, 49, .12);
+  background: #f6dfe8;
+}
+.tag i {
+  width: 8px;
+  height: 8px;
+  background: var(--maroon);
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+.info {
+  width: 100%;
+  max-width: 540px;
+  box-sizing: border-box;
+}
+.info h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 56px);
+  line-height: 1.15;
+  margin: 18px 0 20px;
+  color: var(--ink);
+  text-transform: uppercase;
+  transition: color .3s;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.info h2:hover {
+  color: var(--maroon);
+}
+.info p {
+  font-size: clamp(15px, 2.2vw, 17px);
+  line-height: 1.7;
+  margin: 0 0 26px;
+  color: #5a5155;
+  overflow-wrap: break-word;
+}
+.chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.chips span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: #fbf1f5;
+  color: var(--maroon);
+  font-weight: 600;
+  font-size: clamp(11px, 2.6vw, 13px);
+  transition: transform .3s, background .3s, box-shadow .3s;
+  white-space: nowrap;
+}
+.chips span:hover {
+  transform: translateY(-3px);
+  background: #f6dfe8;
+  box-shadow: 0 6px 16px rgba(110, 15, 49, .12);
+}
+.chips svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Scroll Reveal */
+.rv {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1);
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+@media (min-width: 769px) {
+  .rv.l { transform: translateX(-40px); }
+  .rv.r { transform: translateX(40px); }
+  .rv.in.l, .rv.in.r { transform: none; }
+}
+
+/* Story */
+#story {
+  padding: 80px 6vw;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+#story .w {
+  max-width: 860px;
+  margin: 0 auto;
+}
+#story h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4.5vw, 54px);
+  color: var(--maroon);
+  margin: 0 0 8px;
+}
+#story h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--ink);
+  margin: 0 0 26px;
+}
+#story h4 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(17px, 2.5vw, 20px);
+  letter-spacing: .08em;
+  color: var(--maroon);
+  margin: 32px 0 12px;
+}
+#story p {
+  font-size: clamp(14px, 2.2vw, 16px);
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+#story .corp {
+  margin-top: 36px;
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fdf5f8, #fff);
+}
+#story .corp p {
+  margin: 0 0 8px;
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+/* Footer */
+footer {
+  background: #f6f0f4;
+  border-top: 1px solid var(--line);
+  padding: 60px 6vw 40px;
+}
+.fg {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 36px;
+}
+.fg img {
+  width: 48px;
+  height: auto;
+  margin-bottom: 18px;
+}
+.fg p {
+  margin: 0 0 8px;
+  line-height: 1.65;
+  font-size: 14px;
+}
+.fg small {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.8;
+  margin-top: 16px;
+  color: #5a5155;
+}
+.fg h5 {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: .12em;
+  color: var(--maroon);
+  margin: 0 0 22px;
+  text-transform: uppercase;
+}
+.fg a {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 14px;
+  transition: color .25s, transform .25s;
+  overflow-wrap: break-word;
+}
+.fg a:hover {
+  color: var(--maroon);
+  transform: translateX(4px);
+}
+.line {
+  max-width: 1240px;
+  margin: 40px auto 0;
+  border-top: 1px solid var(--line);
+}
+#top {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--maroon);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(110, 15, 49, .2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .4s;
+  z-index: 90;
+}
+#top.on {
+  opacity: 1;
+  transform: none;
+}
+#top:hover {
+  transform: translateY(-4px);
+}
+
+/* Tablet & Mobile Media Queries */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .card {
+    height: 240px;
+  }
+  .fg {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 16px;
+    height: 64px;
+  }
+  nav .logo {
+    width: 36px;
+  }
+  nav ul {
+    gap: 16px;
+  }
+  nav li a {
+    font-size: 12px;
+    letter-spacing: .05em;
+  }
+
+  .prod {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    gap: 28px;
+    text-align: center;
+    align-items: center;
+  }
+  .prod .vis, .prod.rev .vis {
+    order: 1 !important;
+    max-width: 340px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .prod .info, .prod.rev .info {
+    order: 2 !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  .vis .main {
+    inset: 4% 4% 0 4%;
+    border-radius: 20px;
+  }
+  .vis .t1 {
+    width: 20%;
+    max-width: 68px;
+    top: 6px;
+    right: 6px;
+    border-radius: 12px;
+  }
+  .vis .t2 {
+    width: 16%;
+    max-width: 56px;
+    bottom: 6px;
+    left: 6px;
+    border-radius: 12px;
+  }
+  .info h2 {
+    font-size: clamp(22px, 6vw, 34px);
+    margin: 14px 0 16px;
+  }
+  .info p {
+    font-size: clamp(14px, 3.5vw, 16px);
+    line-height: 1.6;
+    margin: 0 0 22px;
+  }
+  .tag {
+    justify-content: center;
+    text-align: center;
+  }
+  .chips {
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .chips span {
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 18px;
+  }
+  .card {
+    height: 220px;
+    margin-top: 0 !important;
+  }
+  .prod {
+    padding: 40px 16px;
+    gap: 22px;
+  }
+  .prod .vis, .prod.rev .vis {
+    max-width: 280px;
+  }
+  .vis .t1 {
+    width: 22%;
+    top: 2px;
+    right: 2px;
+  }
+  .vis .t2 {
+    width: 18%;
+    bottom: 2px;
+    left: 2px;
+  }
+  .chips span {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 20px;
+  }
+  .fg {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  footer {
+    padding: 40px 20px 30px;
+  }
+  #story {
+    padding: 50px 20px;
+  }
+  #story .corp {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .rv, .fade { opacity: 1; transform: none; }
+  .hero h1 span b { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-brand">
+    <a href="#home"><img class="logo" src="Berrylet_logo.png" alt="Berrylet Logo"></a>
+  </div>
+  <ul>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero bg" id="home">
+  <div class="blob" style="width:340px;height:340px;background:#f4c4d6;left:-80px;top:80px"></div>
+  <div class="blob" style="width:300px;height:300px;background:#efd0dd;right:-60px;bottom:40px;animation-delay:-5s"></div>
+  <span class="pill fade" style="position:relative"><i></i>Premium Artisan Cookies</span>
+  <h1 style="position:relative"><span><b>Taste the</b></span><span><b>Extraordinary</b></span></h1>
+  <p class="fade d2" style="position:relative">Handcrafted with pure ghee, real ingredients, and a passion for perfection. Discover Berrylet — where every cookie tells a story of flavor.</p>
+  <div class="btns fade d3" style="position:relative">
+    <a class="btn p" href="#shop">Explore Collection <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn s" href="#story">Our Story</a>
+  </div>
+</header>
+
+<section id="shop">
+  <div class="cards" id="shop-cards">
+    <a class="card rv" href="#coconut" aria-label="View Rich Coconut Crunch"><img src="coconut/coco 2.png" alt="Rich Coconut Crunch"></a>
+    <a class="card rv" style="transition-delay:.12s" href="#chocolate" aria-label="View Loaded Choco Chip"><img src="chocolate/choc 1.png" alt="Loaded Choco Chip"></a>
+    <a class="card rv" style="transition-delay:.24s" href="#jeera" aria-label="View Roasted Jeera Crunch"><img src="jeera/jeera 1.png" alt="Roasted Jeera Crunch"></a>
+    <a class="card rv" style="transition-delay:.36s" href="#cornflakes" aria-label="View Crunchy Cornflakes"><img src="cornflak/corn 1.png" alt="Crunchy Cornflakes"></a>
+  </div>
+</section>
+
+<!-- Product Showcases Container -->
+<div id="products-container">
+  <section class="prod" id="coconut">
+    <div class="vis rv l">
+      <div class="main tilt"><img src="coconut/coco 2.png" alt="Rich Coconut Crunch"></div>
+      <div class="t1"><img src="coconut/coco 1.png" alt="Rich Coconut Crunch detail thumbnail 1"></div>
+      <div class="t2"><img src="coconut/coco 4.png" alt="Rich Coconut Crunch detail thumbnail 2"></div>
+    </div>
+    <div class="info rv r">
+      <span class="tag"><i></i>Rich in real coconut &amp; pure ghee</span>
+      <h2>Rich Coconut Crunch</h2>
+      <p>Indulge in the tropical bliss of hand-selected real coconut flakes folded into a buttery, melt-in-your-mouth cookie made with 100% pure ghee. Every bite delivers an authentic crunch with a delicate sweetness that transports you to sun-kissed shores.</p>
+      <div class="chips">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="12" rx="2"/><path d="M9 9V6h6v3"/></svg>Net Wt. 300g</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>100% Vegetarian</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Pure Ghee</span>
+      </div>
+      <a class="btn p" href="https://www.amazon.in/dp/B0HQTSYXRV?th=1" target="_blank" rel="noopener">View on Amazon <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 14v6H4V6h6M14 4h6v6M20 4L10 14"/></svg></a>
+    </div>
+  </section>
+
+  <section class="prod rev" id="chocolate">
+    <div class="vis rv r">
+      <div class="main tilt"><img src="chocolate/choc 1.png" alt="Loaded Choco Chip"></div>
+      <div class="t1"><img src="chocolate/choc 2.png" alt="Loaded Choco Chip detail thumbnail 1"></div>
+      <div class="t2"><img src="chocolate/choc 4.png" alt="Loaded Choco Chip detail thumbnail 2"></div>
+    </div>
+    <div class="info rv l">
+      <span class="tag"><i></i>Loaded with rich cocoa chips</span>
+      <h2>Loaded Choco Chip</h2>
+      <p>Dive into deep, decadent layers of premium cocoa chips studded across a golden-baked cookie base. Crafted for the true chocolate lover — each piece is a warm, gooey celebration of rich cocoa and velvety butter that melts on your tongue.</p>
+      <div class="chips">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="12" rx="2"/><path d="M9 9V6h6v3"/></svg>Net Wt. 300g</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>100% Vegetarian</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg>Premium Cocoa</span>
+      </div>
+      <a class="btn p" href="https://www.amazon.in/dp/B0HQTSYXRV?th=1" target="_blank" rel="noopener">View on Amazon <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 14v6H4V6h6M14 4h6v6M20 4L10 14"/></svg></a>
+    </div>
+  </section>
+
+  <section class="prod" id="jeera">
+    <div class="vis rv l">
+      <div class="main tilt"><img src="jeera/jeera 1.png" alt="Roasted Jeera Crunch"></div>
+      <div class="t1"><img src="jeera/jeera 2.png" alt="Roasted Jeera Crunch detail thumbnail 1"></div>
+      <div class="t2"><img src="jeera/jeera 5.png" alt="Roasted Jeera Crunch detail thumbnail 2"></div>
+    </div>
+    <div class="info rv r">
+      <span class="tag"><i></i>Traditional roasted cumin crunch</span>
+      <h2>Roasted Jeera Crunch</h2>
+      <p>Experience the warm, earthy aroma of freshly roasted cumin seeds blended into a crispy, savory cookie. This unique fusion of traditional Indian spice and modern baking craft delivers an irresistible umami crunch that's perfect with your evening chai.</p>
+      <div class="chips">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="12" rx="2"/><path d="M9 9V6h6v3"/></svg>Net Wt. 300g</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>100% Vegetarian</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Roasted Cumin</span>
+      </div>
+      <a class="btn p" href="https://www.amazon.in/dp/B0HQTSYXRV?th=1" target="_blank" rel="noopener">View on Amazon <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 14v6H4V6h6M14 4h6v6M20 4L10 14"/></svg></a>
+    </div>
+  </section>
+
+  <section class="prod rev" id="cornflakes">
+    <div class="vis rv r">
+      <div class="main tilt"><img src="cornflak/corn 1.png" alt="Crunchy Cornflakes"></div>
+      <div class="t1"><img src="cornflak/corn 2.png" alt="Crunchy Cornflakes detail thumbnail 1"></div>
+      <div class="t2"><img src="cornflak/corn 5.png" alt="Crunchy Cornflakes detail thumbnail 2"></div>
+    </div>
+    <div class="info rv l">
+      <span class="tag"><i></i>Crunchy cornflakes blend &amp; butter</span>
+      <h2>Crunchy Cornflakes</h2>
+      <p>A golden, sun-kissed fusion of crispy cornflakes and creamy butter that shatters delightfully with every bite. These cookies offer a light, airy crunch with a wholesome sweetness — the perfect treat for breakfast snacking or an afternoon pick-me-up.</p>
+      <div class="chips">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="12" rx="2"/><path d="M9 9V6h6v3"/></svg>Net Wt. 300g</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>100% Vegetarian</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V6h8v3"/></svg>Real Butter</span>
+      </div>
+      <a class="btn p" href="https://www.amazon.in/dp/B0HQTSYXRV?th=1" target="_blank" rel="noopener">View on Amazon <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 14v6H4V6h6M14 4h6v6M20 4L10 14"/></svg></a>
+    </div>
+  </section>
+</div>
+
+<section id="story">
+  <div class="w">
+    <h2 class="rv">Our Brand Story</h2>
+    <h3 class="rv">The Berrylet Heritage</h3>
+    <h4 class="rv">Tradition &amp; Craftsmanship</h4>
+    <p class="rv">Founded under the corporate governance of Aruma Products Private Limited, Berrylet was born out of a deep appreciation for traditional bakery craftsmanship and quality confectionery. Rooted in the rich cultural landscape of Assam, India, our brand is dedicated to bringing thoughtfully crafted, artisanal cookies and snacks to households across the nation.</p>
+    <p class="rv">We believe that exceptional baked goods begin with meticulous attention to detail, carefully balanced recipes, and an unwavering commitment to culinary excellence.</p>
+    <h4 class="rv">Crafted with Care and Precision</h4>
+    <p class="rv">Every single batch of Berrylet cookies—whether our signature Coconut, Chocolate Chip, Roasted Jeera, or Cornflakes variants—is crafted using time-tested baking techniques. We partner with specialized manufacturing facilities, such as Nine Star Enterprises, to ensure rigorous quality control at every stage of production.</p>
+    <p class="rv">From selecting fine ingredients like premium maida, desiccated coconut, and pure butter to executing precise baking temperatures, our process is designed to deliver a consistently delightful crunch and rich flavor profile in every bite.</p>
+    <h4 class="rv">Our Quality Promise</h4>
+    <p class="rv">As an ISO 9001:2015 certified enterprise, Aruma Products Private Limited operates under strict quality management frameworks. We adhere strictly to FSSAI standards, ensuring complete regulatory compliance, transparency, and safety across all our product lines.</p>
+    <p class="rv">Berrylet stands for reliability, consistency, and a passion for fine food, making every tea-time moment special for our customers.</p>
+    <div class="corp rv">
+      <p><b>Corporate Identity:</b> Aruma Products Private Limited</p>
+      <p><b>Registered Office:</b> C/O ASHOK KR BORAH, 062, JELEHUA, Ahatguri, Glt, Golaghat- 785614, Assam</p>
+      <p><b>FSSAI License No.:</b> 20326120001169 | ISO 9001:2015 Certified</p>
+      <p><b>Support Email:</b> arumaproductspvtltd@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="fg">
+    <div class="rv">
+      <img src="Berrylet_logo.png" alt="Berrylet Logo">
+      <p>Premium artisan cookies handcrafted with passion and perfection by Aruma Products Private Limited.</p>
+      <small><b>Aruma Products Private Limited</b><br>Registered Address: C/O ASHOK KR BORAH, 062, JELEHUA, Ahatguri, Glt, Golaghat- 785614, Assam<br>FSSAI Reg. No: 20326120001169<br>Manufactured by Nine Star Enterprises</small>
+    </div>
+    <div class="rv" style="transition-delay:.1s">
+      <h5>Quick Links</h5>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop All</a>
+      <a href="#story">Our Story</a>
+    </div>
+    <div class="rv" style="transition-delay:.2s">
+      <h5>Products</h5>
+      <a href="#coconut">Coconut Cookies</a>
+      <a href="#chocolate">Chocolate Chip</a>
+      <a href="#jeera">Roasted Jeera</a>
+      <a href="#cornflakes">Cornflakes Cookies</a>
+    </div>
+    <div class="rv" style="transition-delay:.3s">
+      <h5>Legal &amp; Contact</h5>
+      <a href="mailto:arumaproductspvtltd@gmail.com">arumaproductspvtltd@gmail.com</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms and Conditions</a>
+    </div>
+  </div>
+  <div class="line"></div>
+</footer>
+
+<button id="top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 15l6-6 6 6"/></svg></button>
+
+<script>
+// Single source of truth for Product Data Synchronization
+const PRODUCTS = [
+  {
+    id: "coconut",
+    title: "Rich Coconut Crunch",
+    tag: "Rich in real coconut & pure ghee",
+    description: "Indulge in the tropical bliss of hand-selected real coconut flakes folded into a buttery, melt-in-your-mouth cookie made with 100% pure ghee. Every bite delivers an authentic crunch with a delicate sweetness that transports you to sun-kissed shores.",
+    mainImg: "coconut/coco 2.png",
+    t1Img: "coconut/coco 1.png",
+    t2Img: "coconut/coco 4.png",
+    chips: [
+      { text: "Net Wt. 300g", icon: "weight" },
+      { text: "100% Vegetarian", icon: "veg" },
+      { text: "Pure Ghee", icon: "ghee" }
+    ],
+    amazonUrl: "https://www.amazon.in/dp/B0HQTSYXRV?th=1"
+  },
+  {
+    id: "chocolate",
+    title: "Loaded Choco Chip",
+    tag: "Loaded with rich cocoa chips",
+    description: "Dive into deep, decadent layers of premium cocoa chips studded across a golden-baked cookie base. Crafted for the true chocolate lover — each piece is a warm, gooey celebration of rich cocoa and velvety butter that melts on your tongue.",
+    mainImg: "chocolate/choc 1.png",
+    t1Img: "chocolate/choc 2.png",
+    t2Img: "chocolate/choc 4.png",
+    chips: [
+      { text: "Net Wt. 300g", icon: "weight" },
+      { text: "100% Vegetarian", icon: "veg" },
+      { text: "Premium Cocoa", icon: "cocoa" }
+    ],
+    amazonUrl: "https://www.amazon.in/dp/B0HQTSYXRV?th=1"
+  },
+  {
+    id: "jeera",
+    title: "Roasted Jeera Crunch",
+    tag: "Traditional roasted cumin crunch",
+    description: "Experience the warm, earthy aroma of freshly roasted cumin seeds blended into a crispy, savory cookie. This unique fusion of traditional Indian spice and modern baking craft delivers an irresistible umami crunch that's perfect with your evening chai.",
+    mainImg: "jeera/jeera 1.png",
+    t1Img: "jeera/jeera 2.png",
+    t2Img: "jeera/jeera 5.png",
+    chips: [
+      { text: "Net Wt. 300g", icon: "weight" },
+      { text: "100% Vegetarian", icon: "veg" },
+      { text: "Roasted Cumin", icon: "jeera" }
+    ],
+    amazonUrl: "https://www.amazon.in/dp/B0HQTSYXRV?th=1"
+  },
+  {
+    id: "cornflakes",
+    title: "Crunchy Cornflakes",
+    tag: "Crunchy cornflakes blend & butter",
+    description: "A golden, sun-kissed fusion of crispy cornflakes and creamy butter that shatters delightfully with every bite. These cookies offer a light, airy crunch with a wholesome sweetness — the perfect treat for breakfast snacking or an afternoon pick-me-up.",
+    mainImg: "cornflak/corn 1.png",
+    t1Img: "cornflak/corn 2.png",
+    t2Img: "cornflak/corn 5.png",
+    chips: [
+      { text: "Net Wt. 300g", icon: "weight" },
+      { text: "100% Vegetarian", icon: "veg" },
+      { text: "Real Butter", icon: "butter" }
+    ],
+    amazonUrl: "https://www.amazon.in/dp/B0HQTSYXRV?th=1"
+  }
+];
+
+function getChipIcon(iconType) {
+  switch (iconType) {
+    case 'weight':
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="12" rx="2"/><path d="M9 9V6h6v3"/></svg>`;
+    case 'veg':
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>`;
+    case 'ghee':
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>`;
+    case 'cocoa':
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg>`;
+    case 'jeera':
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>`;
+    case 'butter':
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V6h8v3"/></svg>`;
+    default:
+      return '';
+  }
+}
+
+function renderProducts() {
+  const shopContainer = document.getElementById("shop-cards");
+  const productsContainer = document.getElementById("products-container");
+
+  if (shopContainer) {
+    shopContainer.innerHTML = PRODUCTS.map((p, index) => `
+      <a class="card rv" style="transition-delay:${index * 0.12}s" href="#${p.id}" aria-label="View ${p.title}">
+        <img src="${p.mainImg}" alt="${p.title}">
+      </a>
+    `).join("");
+  }
+
+  if (productsContainer) {
+    productsContainer.innerHTML = PRODUCTS.map((p, index) => {
+      const isRev = index % 2 !== 0;
+      return `
+        <section class="prod ${isRev ? 'rev' : ''}" id="${p.id}">
+          <div class="vis rv ${isRev ? 'r' : 'l'}">
+            <div class="main tilt">
+              <img src="${p.mainImg}" alt="${p.title}">
+            </div>
+            <div class="t1">
+              <img src="${p.t1Img}" alt="${p.title} detail thumbnail 1">
+            </div>
+            <div class="t2">
+              <img src="${p.t2Img}" alt="${p.title} detail thumbnail 2">
+            </div>
+          </div>
+          <div class="info rv ${isRev ? 'l' : 'r'}">
+            <span class="tag"><i></i>${p.tag}</span>
+            <h2>${p.title}</h2>
+            <p>${p.description}</p>
+            <div class="chips">
+              ${p.chips.map(c => `<span>${getChipIcon(c.icon)}${c.text}</span>`).join("")}
+            </div>
+            <a class="btn p" href="${p.amazonUrl}" target="_blank" rel="noopener">
+              View on Amazon
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 14v6H4V6h6M14 4h6v6M20 4L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </section>
+      `;
+    }).join("");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. Synchronized product rendering from structured array
+  renderProducts();
+
+  // 2. Scroll top button toggle
+  const topBtn = document.getElementById("top");
+  if (topBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        topBtn.classList.add("on");
+      } else {
+        topBtn.classList.remove("on");
+      }
+    });
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // 3. Navbar shadow on scroll
+  const nav = document.getElementById("nav");
+  if (nav) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        nav.classList.add("stuck");
+      } else {
+        nav.classList.remove("stuck");
+      }
+    });
+  }
+
+  // 4. Scroll Reveal with IntersectionObserver
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -40px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".rv").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
